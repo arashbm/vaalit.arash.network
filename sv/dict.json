@@ -1,0 +1,57 @@
+{
+	"name": "Arash Badie-Modiri",
+	"tagline": "Regional- och kommunalvalskandidat för Vänsterförbundet i Esbo och västra Nyland.",
+	"about_me_title": "Min bakgrund",
+	"learn_more": "Mina valteman",
+	"cc_text": "Texten på denna sida är licensierad under en Creative Commons Attribution 4.0 International-licens.",
+	"image_source": "källa",
+	"americanisation": "Stoppa amerikaniseringen av sjukvård och utbildning!",
+	"join_newsletter": "Anslut dig till mig i denna rörelse!",
+	"newsletter_small_print": "Vanligtvis ett till fyra e-postmeddelanden per år. Ingen skräppost och inga spårare. Data förvaras alltid inom EU och delas aldrig.",
+	"join_newsletter_text": "Vi kan bara förändra status quo tillsammans. Anslut dig till mig i denna rörelse för ett mer jämlikt och hållbart Esbo!",
+	"themes": [
+		{
+			"title": "Inga fler nedskärningar i utbildningen",
+			"description": "Beslutet att skära ner på finansieringen för grundläggande och yrkesutbildning mitt i en oöverträffad brist på kompetens och stigande arbetslöshet är så djupt felriktat att det inte helt kan förklaras med ren inkompetens. Den lokala förvaltningen måste se till att skadorna på framtiden för Esbo och landet mildras och begränsas.",
+			"src": "student-protest-2.jpg",
+			"cc": "CC BY-NC 2.0, by cuboctahedron on Flickr",
+			"alt": "Studenter protesterar mot åtstramningar i Helsingfors",
+			"origin_url": "https://www.flickr.com/photos/cuboctahedron/25488341730/in/photolist-EQjpZL-EQj2DJ-2m31DYu-2m2FkNX-2otuj4d-2nQxBQT-2otrqZe-97FEHg-2mYyEfa-2otwqaG-2otwfov-2nQBGPE-2otvATS-2otrK8D-2nQCsdz-2hqb8Ea-2q4MVBG-2hqb8FT-2nS5sU5-2hq8iun-2otwz6C-2otuj1C-2hq8ivQ-2otrzQW-2otvqNS-2otwLqQ-2otvqQv-2otuj3g-2otvgMv-2otvgW8-2ottXBb-2otvAPo-2otrKCB-2otwWvQ-2otwWb1-2otrKcg-2otwJV7-2nQBGMR-ox6nV3-2ZyZs-97JM6G-2ZymL-22GHjra-2ZymQ-2458vvD-2oM4H7W-2ZymP-2ZymM-2ZymN-FW96Bh/"
+		}, {
+			"title": "Datadriven transport: en bekväm och hållbar stad",
+			"description": "Övergången till en klimatsmart stad behöver inte innebära att man lever i obehag. Med en datadriven designstrategi för stadens transportsystem kan vi skapa en både bekvämare och mer hållbar stad.",
+			"src": "bus-crop.jpg",
+			"cc": "CC BY-SA 4.0, by Penguin9 on Wikimedia Commons",
+			"alt": "En HRT-buss på natten framför en byggnad.",
+			"origin_url": "https://commons.wikimedia.org/wiki/File:Helsinki,_VDL_Citea_XLE-145.310_%C4%8D._268.jpg"
+		}, {
+			"title": "Förskoleutbildning är en investering i framtiden",
+			"description": "Föräldrarnas boendesituation och ekonomiska status bör inte bestämma ett barns framtid. Vi behöver investera i förskoleutbildning för att säkerställa att varje barn har lika möjligheter.",
+			"src": "paivakoti.jpg",
+			"cc": "CC BY 3.0, by Victor Belousov from Wikimedia Commons",
+			"alt": "En snöig lekplats framför en förskolebyggnad med etiketten \"Tiistilänraitin päiväkoti\".",
+			"origin_url": "https://commons.wikimedia.org/wiki/File:%D0%AD%D1%81%D0%BF%D0%BE%D0%BE._%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B0%D0%B4%D0%B8%D0%BA._Tiistil%C3%A4nraitin_p%C3%A4iv%C3%A4koti._Foto_by_Victor_Belousov._-_panoramio.jpg"
+		}, {
+			"title": "Rätten till en värdig vård",
+			"description": "Hälso- och sjukvård är en grundläggande mänsklig rättighet. En väsentlig del av detta är de äldres rätt att leva med värdighet. Vi behöver investera i omsorg för de äldre, till exempel genom gemensamma och flexibla boendelösningar samt dygnet-runt-vård. Självbestämmande och främjande av självständighet är av största vikt.",
+			"src": "hand.jpg",
+			"cc": "CC BY 2.0, by asbruff on Flickr",
+			"alt": "Svartvitt foto av en åldrad hand.",
+			"origin_url": "https://www.flickr.com/photos/asbruff/12966728535/in/photolist-kKPSD6-2fRrnkY-2mAuiCm-j8SuNm-7TtM9s-84T4Hi-cx6id1-22EZ21N-4sune3-2iGp9wu-GbCUmv-bz75hZ-hNEYmJ-2jvNQLG-2oHUkvN-8EbvaA-2mbCWSb-2qCgtGk-2qFY5J2-2op6cnC-2opJTbX-Hu7USX-2mRtfk8-272zSpC-7HGrJc-2hRLQeJ-2okSR3i-2mVYcLk-2qHvfSB-2n35Khh-2qKAUYR-27ocd1N-2qC6NrA-SZtrSW-2iAL4Y6-2n5kN42-2mhcWZN-2pAdsa1-2jDKui5-2nKaF4K-2otY7w9-2jFHhrf-2nquecZ-2qxS38U-2nUKNk1-4u1J2r-2ngEESe-bJyiT8-2pW1YVH-2qesCYz"
+		}, {
+			"title": "Ökande väntetider inom hälso- och sjukvården är en arbetsrättslig fråga",
+			"description": "Sjukvårdspersonal lider ofta av utbrändhet och orimliga arbetstider. Att lösa dessa problem gör den offentliga hälso- och sjukvården till en mer attraktiv arbetsgivare. Denna kompetensbrist är den drivande faktorn bakom väntetiderna och ett långsiktigt hot mot folkhälsan.",
+			"src": "terveysasema.jpg",
+			"cc": "CC BY-SA 3.0, by Paju~commonswiki on Wikimedia Commons",
+			"alt": "Väntrummet på en hälsocentral i Esbo.",
+			"origin_url": "https://commons.wikimedia.org/wiki/File:Ison_Omenan_palvelutori_-_Oma_L%C3%A4%C3%A4k%C3%A4risi_-_Espoo_-_1.jpg"
+		}, {
+			"title": "Psykisk hälsa som en förstklassig del av hälso- och sjukvården",
+			"description": "Psykisk hälsa är en viktig del av vårt totala välbefinnande. Modern medicin behandlar inte längre psykisk och fysisk hälsa som separata; istället ses båda som sammankopplade aspekter av det övergripande välbefinnandet. Det är hög tid att vi behandlar psykisk hälsa och missbruk som <em>förstklassiga medborgare</em> inom hälso- och sjukvården.",
+			"src": "goya.jpg",
+			"cc": "Public domain, by Francisco Goja, oil on canvas",
+			"alt": "En målning föreställande en gammal man i munkdräkt, med en starkt karikerad figur vars ansikte framstår som djuriskt lutad bakifrån och viskande i hans öra.",
+			"origin_url": "https://en.wikipedia.org/wiki/File:2_alte_M%C3%A4nner,_um_1821-23.jpg"
+		}
+	]
+}

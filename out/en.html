@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gray-800">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arash Badie-Modiri</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="/tailwind.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url('/fonts/Poppins-Black.woff2') format('woff2');
+      font-display: swap;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('/fonts/Poppins-Regular.woff2') format('woff2');
+      font-display: swap;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: Poppins, sans-serif;
+      --color-punainen: #f00a64;
+      --color-sininen: #3200a0;
+      --color-pinkki: #ff78c7;
+      --color-keltainen: #ffe65a;
+    }
+
+    @layer base {
+      html {
+        font-size: 19px;
+      }
+      p a {
+        @apply text-punainen underline;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased text-gray-800 bg-white">
+
+  <nav class="sticky top-0 z-50 bg-gray-800 text-white shadow">
+    <div class="container mx-auto px-4 py-1  flex justify-between items-center">
+      <!-- Navigation links -->
+      <div class="flex space-x-4">
+        <a href="#about-me" class="px-3 py-2 rounded hover:bg-gray-700 transition">Arash Badie-Modiri</a>
+      </div>
+      <!-- Language selection buttons -->
+      <div class="flex space-x-4">
+        <a href="/" class="px-3 py-2 rounded hover:bg-gray-700 transition">Suomi</a>
+        <a href="/en.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">English</a>
+        <a href="/sv.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">Svenska</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative h-[80vh]">
+    <div class="absolute inset-0">
+      <img src="background-2.jpg" alt="Campaign Background" class="w-full h-full object-cover object-[20%_40%]" />
+      <div class="absolute inset-0 md:bg-gradient-to-l bg-gradient-to-tl from-black/80 from-5% to-transparent to-70%"></div>
+    </div>
+    <div class="relative container mx-auto h-full flex items-end md:items-center md:justify-end justify-center px-1 py-5">
+      <div class="text-right text-white max-w-md space-y-6">
+        <h1 class="text-3xl font-bold drop-shadow-lg">Arash Badie-Modiri</h1>
+        <p class="text-xl drop-shadow-md">Regional and municipal election candidate for the Left Alliance in Espoo and western Uusimaa</p>
+        <a href="#themes" class="inline-block bg-punainen hover:bg-blue-700 transition duration-300 ease-in-out text-white font-semibold py-3 px-6 rounded shadow">
+          Learn more
+        </a>
+
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/badie-modiri"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://buttondown.com/badie-modiri', 'popupwindow')"
+          class="w-full mx-auto bg-black/30 rounded-lg p-4 shadow"
+        >
+          <label for="bd-email" class="block justify-center text-gray-100 font-semibold mb-1 pb-4 pt-1 sr-only">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="bd-email"
+            placeholder="you@example.com"
+            required
+            class="w-full border border-gray-300 rounded px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+          <input
+            type="submit"
+            value="Join me in this movement!"
+            class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+          />
+          <p class="mt-2 text-xs text-gray-400">
+              Typically one to four emails per year. No spam and no trackers. Data are always kept inside EU and are never shared.
+          </p>
+        </form>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-4 bg-gradient-to-t from-white"></div>
+  </header>
+
+
+  <section class="py-10 bg-gray-50 scroll-mt-8" id="themes">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="student-protest-2.jpg" alt="Students protesting austerity measures in Helsinki" class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                CC BY-NC 2.0, by cuboctahedron on Flickr
+                
+                  <a href="https://www.flickr.com/photos/cuboctahedron/25488341730/in/photolist-EQjpZL-EQj2DJ-2m31DYu-2m2FkNX-2otuj4d-2nQxBQT-2otrqZe-97FEHg-2mYyEfa-2otwqaG-2otwfov-2nQBGPE-2otvATS-2otrK8D-2nQCsdz-2hqb8Ea-2q4MVBG-2hqb8FT-2nS5sU5-2hq8iun-2otwz6C-2otuj1C-2hq8ivQ-2otrzQW-2otvqNS-2otwLqQ-2otvqQv-2otuj3g-2otvgMv-2otvgW8-2ottXBb-2otvAPo-2otrKCB-2otwWvQ-2otwWb1-2otrKcg-2otwJV7-2nQBGMR-ox6nV3-2ZyZs-97JM6G-2ZymL-22GHjra-2ZymQ-2458vvD-2oM4H7W-2ZymP-2ZymM-2ZymN-FW96Bh/" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">No more cuts to education</h2>
+            <p class="text-gray-600">The decision to cut funding for basic and vocational education amid an unprecedented skills shortage and rising unemployment is so profoundly misguided that cannot be fully explained by pure incompetence. Local governance must make sure the damage to the future of Espoo and the country is mitigated and contained.</p>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="bus-crop.jpg" alt="An HSL bus at night in front of a building." class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                CC BY-SA 4.0, by Penguin9 on Wikimedia Commons
+                
+                  <a href="https://commons.wikimedia.org/wiki/File:Helsinki,_VDL_Citea_XLE-145.310_%C4%8D._268.jpg" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Data-driven transport: a comfortable and sustainable city</h2>
+            <p class="text-gray-600">The transition to a climate-friendly city does not have to mean living in discomfort. With a data-driven design apprach to the city-wide transport system we can create a more comfortable and a more sustainable city.</p>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="paivakoti.jpg" alt="A snowy playground in front of a kindergarten building with label "Tiistilänraitin päiväkoti"." class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                CC BY 3.0, by Victor Belousov from Wikimedia Commons
+                
+                  <a href="https://commons.wikimedia.org/wiki/File:%D0%AD%D1%81%D0%BF%D0%BE%D0%BE._%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B0%D0%B4%D0%B8%D0%BA._Tiistil%C3%A4nraitin_p%C3%A4iv%C3%A4koti._Foto_by_Victor_Belousov._-_panoramio.jpg" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Early childhood education is an investment in the future</h2>
+            <p class="text-gray-600">The living situation and economic status of the parents should not dictate the future of a child. We need to invest in early childhood education to ensure that every child has an equal opportunity.</p>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="hand.jpg" alt="Black and white photo of an aged hand." class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                CC BY 2.0, by asbruff on Flickr
+                
+                  <a href="https://www.flickr.com/photos/asbruff/12966728535/in/photolist-kKPSD6-2fRrnkY-2mAuiCm-j8SuNm-7TtM9s-84T4Hi-cx6id1-22EZ21N-4sune3-2iGp9wu-GbCUmv-bz75hZ-hNEYmJ-2jvNQLG-2oHUkvN-8EbvaA-2mbCWSb-2qCgtGk-2qFY5J2-2op6cnC-2opJTbX-Hu7USX-2mRtfk8-272zSpC-7HGrJc-2hRLQeJ-2okSR3i-2mVYcLk-2qHvfSB-2n35Khh-2qKAUYR-27ocd1N-2qC6NrA-SZtrSW-2iAL4Y6-2n5kN42-2mhcWZN-2pAdsa1-2jDKui5-2nKaF4K-2otY7w9-2jFHhrf-2nquecZ-2qxS38U-2nUKNk1-4u1J2r-2ngEESe-bJyiT8-2pW1YVH-2qesCYz" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Right to a dignified care</h2>
+            <p class="text-gray-600">Healthcare is a basic human right. An essential part of this is the right of the elderly to live with dignity. We need to invest in care for the elderly, for example in terms of communal and flexible living solutions and 24-hour care. Self-determination and promotion of independence is paramount.</p>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="terveysasema.jpg" alt="Waiting area of a health center in Espoo." class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                CC BY-SA 3.0, by Paju~commonswiki on Wikimedia Commons
+                
+                  <a href="https://commons.wikimedia.org/wiki/File:Ison_Omenan_palvelutori_-_Oma_L%C3%A4%C3%A4k%C3%A4risi_-_Espoo_-_1.jpg" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Rising healthcare waiting times are a labour rights issue</h2>
+            <p class="text-gray-600">Healthcare workers frequently suffer burnouts and unreasonable working hours. Resolving these makes the public healthcare a more attractive employer. This skill shortage is the driving factor for the waiting times and a long-term threat to public health. </p>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="goya.jpg" alt="A painting depicting an old man in friar's habit, with a highly caricatured figure whose face appears animalistic or corpse-like leaning in from behind and whispering in his ear." class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Public domain, by Francisco Goja, oil on canvas
+                
+                  <a href="https://en.wikipedia.org/wiki/File:2_alte_M%C3%A4nner,_um_1821-23.jpg" class="underline">(source)</a>
+                
+              </div>
+              
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Mental health as first-class healthcare</h2>
+            <p class="text-gray-600">Mental health is an important part of our overall well-being. Modern medicine no longer treat mental and physical health as distinct; instead, both are recognized as interconnected aspects of overall well-being. It is about time we treat mental health and substance abuse as <em>first class citizens</em> in healthcare.</p>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-center min-h-[200px]">
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-800 max-w-5xl mx-auto">
+            Stop Americanisation of healthcare and education!
+        </h1>
+      </div>
+    </div>
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Blockquote Column -->
+        <div class="relative">
+          <!-- Graphical Quote Icon -->
+          <svg class="w-16 h-16 text-gray-300 absolute -top-7 -left-7" fill="currentColor" viewBox="0 0 349.078 349.078">
+              <path d="M198.779,322.441v-58.245c0-7.903,6.406-14.304,14.304-14.304c28.183,0,43.515-28.904,45.643-85.961h-45.643
+                c-7.897,0-14.304-6.41-14.304-14.304V26.64c0-7.9,6.406-14.301,14.304-14.301h121.69c7.896,0,14.305,6.408,14.305,14.301v122.988
+                c0,27.349-2.761,52.446-8.181,74.611c-5.568,22.722-14.115,42.587-25.398,59.049c-11.604,16.917-26.132,30.192-43.155,39.437
+                c-17.152,9.304-37.09,14.026-59.267,14.026C205.186,336.745,198.779,330.338,198.779,322.441z M14.301,249.887
+                C6.404,249.887,0,256.293,0,264.185v58.257c0,7.896,6.404,14.298,14.301,14.298c22.166,0,42.114-4.723,59.255-14.026
+                c17.032-9.244,31.558-22.508,43.161-39.437c11.29-16.462,19.836-36.328,25.404-59.061c5.423-22.165,8.178-47.263,8.178-74.6V26.628
+                c0-7.9-6.41-14.301-14.304-14.301H14.301C6.404,12.327,0,18.734,0,26.628v122.988c0,7.899,6.404,14.304,14.301,14.304h45.002
+                C57.201,220.982,42.09,249.887,14.301,249.887z"/>
+          </svg>
+          <blockquote class="text-3xl font-serif italic text-gray-900 pl-5 pt-5 z-20">
+              <p class="py-2">
+                “Randy, <span class="text-gray-300">[…]</span> what is the highest and best purpose to which we can devote our allotted lifespans?”
+              </p>
+              <p class="indent-5 py-2">
+                “Uh… enhancing shareholder value?”
+              </p>
+              <p class="indent-5 py-2">
+                “Very funny.”
+              </p>
+          </blockquote>
+          <p class="mt-4 text-md text-gray-600 font-medium pl-30">⸺ Cryptonomicon, Neal Stephenson</p>
+        </div>
+        <!-- Text Column -->
+        <div class="space-y-4 text-gray-700 text-lg">
+            <p>According to the Trade Union of Education (OAJ), privatisation of early
+childhood education <a href="https://www.oaj.fi/ajankohtaista/uutiset-ja-tiedotteet/2025/varhaiskasvatuksen-palvelusetelilainsaadanto-voi-tehda-lapsista-kauppatavaraa/">turns children into commodities</a>. The
+introduction of the voucher system has made this problem worse. We are already
+seeing the involvement of large chain companies, and a similar practice being
+promoted for healthcare.</p>
+
+<p>Public healthcare and education systems are like stained glass windows: it
+takes years to gather the resources and the talent to build it up, but a moment
+of weakness to break it down. Now that the government is deliberately throwing
+stones at our institutions, municipal and regional government must step in to
+protect our future.</p>
+
+<p>Instead, we should be investing in healthcare and education. <strong>The solution is
+not Americanisation of healthcare and education but to invest in them</strong>. By
+making Espoo and Western Uusimaa the best employers we can, we attract new
+workforce and make education and healthcare an enticing career choice.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 scroll-mt-8" id="about-me">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 gap-6">
+          <img src="sunset.jpg" alt="" class="w-full h-135 object-cover rounded-lg" />
+        </div>
+
+        <div class="space-y-6 text-gray-700">
+          <h2 class="text-3xl font-bold text-black">About me</h2>
+          <p>I am a university researcher with a PhD in complex systems—systems with many interconnected parts exhibiting rich and complex behaviour. I completed my master's degree at Aalto University on <strong>the accessibility and robustness of public transport networks</strong>, comparing the Helsinki metropolitan area public transport system with those of 19 other major cities. My findings showed that some traditional and commonly used methods of assessing network resilience often perform no better than pure guesswork, emphasising the need for modern, data-driven solutions in decision-making.</p>
+
+<p>During my doctoral studies, also at Aalto University, I investigated how diseases and information spread. I have published research articles on <strong>epidemic modeling</strong>, the effectiveness of <strong>contact tracing</strong>, and <strong>quarantines</strong>. I analysed the mathematics and physics underpinning disease transmission.</p>
+
+<p>I'm passionate about bringing evidence-based thinking to local governance. My background provides valuable tools for addressing municipal and well-being challenges—from ensuring robust transport networks to planning effective health interventions.</p>
+
+<p>In my free time, I enjoy tinkering with electronics, playing board games, and reading science fiction. I also dedicate some of my free time to maintaining and contributing to open-source software.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sininen py-4">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div class="text-white text-lg">
+          <p>We can only change the status quo together. Join me in this movement for a more equal and sustainable Espoo!</p>
+          <p>Typically one to four emails per year. No spam and no trackers. Data are always kept inside EU and are never shared.</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 shadow flex items-center justify-center">
+          <form 
+            action="https://buttondown.com/api/emails/embed-subscribe/badie-modiri" 
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/badie-modiri', 'popupwindow')"
+            class="flex flex-wrap items-center space-x-2"
+          >
+            <label for="bd-email" class="text-gray-700 font-semibold whitespace-nowrap">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="bd-email"
+              placeholder="you@example.com"
+              required
+              class="border border-gray-300 rounded px-2 py-4 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <input 
+              type="submit"
+              value="Join me in this movement!"
+              class="bg-blue-600 text-white font-semibold px-4 py-4 rounded hover:bg-blue-700 transition"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-gray-400 py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+        <p>The text of this page is licensed under a Creative Commons Attribution 4.0 International license.</p>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <img src="logo_vasemmisto_vanstern_white.svg" alt="" class="w-20 h-20" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

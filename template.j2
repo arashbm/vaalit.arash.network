@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gray-800">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ name }}</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="/tailwind.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url('/fonts/Poppins-Black.woff2') format('woff2');
+      font-display: swap;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('/fonts/Poppins-Regular.woff2') format('woff2');
+      font-display: swap;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: Poppins, sans-serif;
+      --color-punainen: #f00a64;
+      --color-sininen: #3200a0;
+      --color-pinkki: #ff78c7;
+      --color-keltainen: #ffe65a;
+    }
+
+    @layer base {
+      html {
+        font-size: 19px;
+      }
+      p a {
+        @apply text-punainen underline;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased text-gray-800 bg-white">
+
+  <nav class="sticky top-0 z-50 bg-gray-800 text-white shadow">
+    <div class="container mx-auto px-4 py-1  flex justify-between items-center">
+      <!-- Navigation links -->
+      <div class="flex space-x-4">
+        <a href="#about-me" class="px-3 py-2 rounded hover:bg-gray-700 transition">{{ name }}</a>
+      </div>
+      <!-- Language selection buttons -->
+      <div class="flex space-x-4">
+        <a href="/" class="px-3 py-2 rounded hover:bg-gray-700 transition">Suomi</a>
+        <a href="/en.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">English</a>
+        <a href="/sv.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">Svenska</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative h-[80vh]">
+    <div class="absolute inset-0">
+      <img src="background-2.jpg" alt="Campaign Background" class="w-full h-full object-cover object-[20%_40%]" />
+      <div class="absolute inset-0 md:bg-gradient-to-l bg-gradient-to-tl from-black/80 from-5% to-transparent to-70%"></div>
+    </div>
+    <div class="relative container mx-auto h-full flex items-end md:items-center md:justify-end justify-center px-1 py-5">
+      <div class="text-right text-white max-w-md space-y-6">
+        <h1 class="text-3xl font-bold drop-shadow-lg">{{ name }}</h1>
+        <p class="text-xl drop-shadow-md">{{ tagline }}</p>
+        <a href="#themes" class="inline-block bg-punainen hover:bg-blue-700 transition duration-300 ease-in-out text-white font-semibold py-3 px-6 rounded shadow">
+          {{ learn_more }}
+        </a>
+
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/badie-modiri"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://buttondown.com/badie-modiri', 'popupwindow')"
+          class="w-full mx-auto bg-black/30 rounded-lg p-4 shadow"
+        >
+          <label for="bd-email" class="block justify-center text-gray-100 font-semibold mb-1 pb-4 pt-1 sr-only">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="bd-email"
+            placeholder="you@example.com"
+            required
+            class="w-full border border-gray-300 rounded px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+          <input
+            type="submit"
+            value="{{join_newsletter}}"
+            class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+          />
+          <p class="mt-2 text-xs text-gray-400">
+              {{newsletter_small_print}}
+          </p>
+        </form>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-4 bg-gradient-to-t from-white"></div>
+  </header>
+
+
+  <section class="py-10 bg-gray-50 scroll-mt-8" id="themes">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {% for theme in themes %}
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="relative group w-full h-65">
+              <img src="{{ theme.src | e }}" alt="{{theme.alt}}" class="w-full h-full object-cover" />
+              <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
+                ©
+              </div>
+              {% if theme.cc %}
+              <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs/2 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {{ theme.cc }}
+                {% if theme.origin_url %}
+                  <a href="{{ theme.origin_url }}" class="underline">({{ image_source }})</a>
+                {% endif %}
+              </div>
+              {% endif %}
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">{{ theme.title }}</h2>
+            <p class="text-gray-600">{{ theme.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-center min-h-[200px]">
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-800 max-w-5xl mx-auto">
+            {{ americanisation }}
+        </h1>
+      </div>
+    </div>
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Blockquote Column -->
+        <div class="relative">
+          <!-- Graphical Quote Icon -->
+          <svg class="w-16 h-16 text-gray-300 absolute -top-7 -left-7" fill="currentColor" viewBox="0 0 349.078 349.078">
+              <path d="M198.779,322.441v-58.245c0-7.903,6.406-14.304,14.304-14.304c28.183,0,43.515-28.904,45.643-85.961h-45.643
+                c-7.897,0-14.304-6.41-14.304-14.304V26.64c0-7.9,6.406-14.301,14.304-14.301h121.69c7.896,0,14.305,6.408,14.305,14.301v122.988
+                c0,27.349-2.761,52.446-8.181,74.611c-5.568,22.722-14.115,42.587-25.398,59.049c-11.604,16.917-26.132,30.192-43.155,39.437
+                c-17.152,9.304-37.09,14.026-59.267,14.026C205.186,336.745,198.779,330.338,198.779,322.441z M14.301,249.887
+                C6.404,249.887,0,256.293,0,264.185v58.257c0,7.896,6.404,14.298,14.301,14.298c22.166,0,42.114-4.723,59.255-14.026
+                c17.032-9.244,31.558-22.508,43.161-39.437c11.29-16.462,19.836-36.328,25.404-59.061c5.423-22.165,8.178-47.263,8.178-74.6V26.628
+                c0-7.9-6.41-14.301-14.304-14.301H14.301C6.404,12.327,0,18.734,0,26.628v122.988c0,7.899,6.404,14.304,14.301,14.304h45.002
+                C57.201,220.982,42.09,249.887,14.301,249.887z"/>
+          </svg>
+          <blockquote class="text-3xl font-serif italic text-gray-900 pl-5 pt-5 z-20">
+              <p class="py-2">
+                “Randy, <span class="text-gray-300">[…]</span> what is the highest and best purpose to which we can devote our allotted lifespans?”
+              </p>
+              <p class="indent-5 py-2">
+                “Uh… enhancing shareholder value?”
+              </p>
+              <p class="indent-5 py-2">
+                “Very funny.”
+              </p>
+          </blockquote>
+          <p class="mt-4 text-md text-gray-600 font-medium pl-30">⸺ Cryptonomicon, Neal Stephenson</p>
+        </div>
+        <!-- Text Column -->
+        <div class="space-y-4 text-gray-700 text-lg">
+            {{ privatisation }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 scroll-mt-8" id="about-me">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 gap-6">
+          <img src="sunset.jpg" alt="" class="w-full h-135 object-cover rounded-lg" />
+        </div>
+
+        <div class="space-y-6 text-gray-700">
+          <h2 class="text-3xl font-bold text-black">{{about_me_title}}</h2>
+          {{ about }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sininen py-4">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div class="text-white text-lg">
+          <p>{{join_newsletter_text}}</p>
+          <p>{{newsletter_small_print}}</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 shadow flex items-center justify-center">
+          <form 
+            action="https://buttondown.com/api/emails/embed-subscribe/badie-modiri" 
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/badie-modiri', 'popupwindow')"
+            class="flex flex-wrap items-center space-x-2"
+          >
+            <label for="bd-email" class="text-gray-700 font-semibold whitespace-nowrap">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="bd-email"
+              placeholder="you@example.com"
+              required
+              class="border border-gray-300 rounded px-2 py-4 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <input 
+              type="submit"
+              value="{{join_newsletter}}"
+              class="bg-blue-600 text-white font-semibold px-4 py-4 rounded hover:bg-blue-700 transition"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-gray-400 py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+        <p>{{ cc_text }}</p>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <img src="logo_vasemmisto_vanstern_white.svg" alt="{{ left_alliance }}" class="w-20 h-20" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

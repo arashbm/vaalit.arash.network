@@ -1,0 +1,7 @@
+**Olen yliopistotutkija, jolla on tohtorin tutkinto kompleksisista järjestelmistä** – järjestelmistä, joissa on useita toisiinsa kytkeytyneitä osia ja jotka osoittavat monipuolista ja monimutkaista käyttäytymistä. Valmistuin maisteriksi Aalto-yliopistosta tutkien **julkisen liikenteen verkostojen saavutettavuutta ja kestävyyttä**, vertaamalla Helsingin seudun julkisen liikenteen järjestelmää 19 muun suuren kaupungin vastaaviin. Tutkimustulokseni osoittivat, että jotkin perinteiset ja yleisesti käytetyt menetelmät verkoston resilienssin arvioinnissa eivät usein ole parempia kuin pelkkä arvailu, mikä korostaa nykyaikaisten, dataohjautuvien päätöksentekoratkaisujen tarvetta.
+
+Tohtoriopinnoissani, myös Aalto-yliopistossa, tutkiskelin taudin ja informaation leviämistä. Olen julkaissut tutkimusartikkeleita **epidemiamallinnuksesta**, **kontaktien jäljityksen** tehokkuudesta ja **karanteeneista**. Analysoin matematiikkaa ja fysiikkaa, jotka muodostavat taudin leviämisen perustan.
+
+Olen intohimoinen tuomaan näyttöön perustuvaa ajattelua paikallishallintoon. Taustani tarjoaa arvokkaita työkaluja kunnallisten ja hyvinvointiin liittyvien haasteiden ratkaisemiseen – aina luotettavien liikenneverkostojen varmistamisesta tehokkaiden terveydenhuoltotoimenpiteiden suunnitteluun.
+
+Vapaa-ajallani nautin elektroniikan parissa kokeilemisesta, lautapelien pelaamisesta ja tieteiskirjallisuuden lukemisesta. Käytän myös osan vapaa-ajastani avoimen lähdekoodin ohjelmistojen ylläpitoon ja kehittämiseen.
