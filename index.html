@@ -1,1 +1,192 @@
-WIP
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Political Campaign</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@4.0.0/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+
+
+</head>
+<body class="antialiased text-gray-800 bg-white">
+
+<nav class="sticky top-0 z-50 bg-gray-800 text-white shadow">
+  <div class="container mx-auto px-6 py-4  flex justify-between items-center">
+    <!-- Navigation links -->
+    <div class="flex space-x-4">
+      <a href="/" class="px-3 py-2 rounded hover:bg-gray-700 transition">Arash Badie-Modiri</a>
+      <a href="/about" class="px-3 py-2 rounded hover:bg-gray-700 transition">About</a>
+      <a href="/services" class="px-3 py-2 rounded hover:bg-gray-700 transition">Services</a>
+      <a href="/contact" class="px-3 py-2 rounded hover:bg-gray-700 transition">Contact</a>
+    </div>
+    <!-- Language selection buttons -->
+    <div class="flex space-x-4">
+      <a href="/en.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">English</a>
+      <a href="/sv.html" class="px-3 py-2 rounded hover:bg-gray-700 transition">Svenska</a>
+    </div>
+  </div>
+</nav>
+
+  <header class="relative h-[90vh]">
+    <!-- Background Image with a gradient overlay -->
+    <div class="absolute inset-0">
+      <img src="path-to-your-background-image.jpg" alt="Campaign Background" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
+    </div>
+    <!-- Right-aligned text content -->
+    <div class="relative container mx-auto h-full flex items-center justify-end px-6">
+      <div class="text-left text-white max-w-md space-y-6">
+        <h1 class="text-5xl font-bold drop-shadow-lg">Arash Badie-Modiri</h1>
+        <p class="text-xl drop-shadow-md">Inspiring tagline and mission statement that resonates with the community.</p>
+        <a href="#learn-more" class="inline-block bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out text-white font-semibold py-3 px-6 rounded shadow">
+          Learn More
+        </a>
+      </div>
+    </div>
+    <!-- Fade Indicator -->
+    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white"></div>
+  </header>
+
+  <!-- Showcase Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Showcase Item 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <img src="path-to-showcase1.jpg" alt="Community Outreach" class="w-full h-56 object-cover" />
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Community Outreach</h2>
+            <p class="text-gray-600">Our initiatives bring community members together for meaningful dialogue and engagement.</p>
+          </div>
+        </div>
+        <!-- Showcase Item 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <img src="path-to-showcase2.jpg" alt="Economic Plans" class="w-full h-56 object-cover" />
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Economic Plans</h2>
+            <p class="text-gray-600">Innovative strategies to boost local economies and create lasting prosperity.</p>
+          </div>
+        </div>
+        <!-- Showcase Item 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
+          <img src="path-to-showcase3.jpg" alt="Healthcare Initiatives" class="w-full h-56 object-cover" />
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-3">Healthcare Initiatives</h2>
+            <p class="text-gray-600">A comprehensive approach to improve access and quality of care for all citizens.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Text & Image Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="space-y-6">
+        <h2 class="text-3xl font-bold">Our Vision</h2>
+        <p class="text-gray-700">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
+          Duis vulputate commodo lectus, ac blandit elit tincidunt id.
+        </p>
+        <p class="text-gray-700">
+          Curabitur convallis fringilla diam sed aliquam. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in
+          accumsan elit odio quis mi.
+        </p>
+      </div>
+      <!-- Image Content -->
+      <div class="grid grid-cols-1 gap-6">
+        <img src="path-to-your-image1.jpg" alt="Vision Image 1" class="w-full h-64 object-cover rounded-lg" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Showcase Item 1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl">
+        <h2 class="text-2xl font-semibold mb-4">Core Value One</h2>
+        <p class="text-gray-600">
+          A concise description highlighting the importance of the first value. This section can emphasize community, integrity, or any key message.
+        </p>
+      </div>
+      <!-- Showcase Item 2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl">
+        <h2 class="text-2xl font-semibold mb-4">Core Value Two</h2>
+        <p class="text-gray-600">
+          This card details another important aspect of your campaign. It might discuss economic reform, transparency, or similar points.
+        </p>
+      </div>
+      <!-- Showcase Item 3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl">
+        <h2 class="text-2xl font-semibold mb-4">Core Value Three</h2>
+        <p class="text-gray-600">
+          A final showcase item can wrap up your message, emphasizing a call-to-action, community engagement, or a unique aspect of your platform.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- About the Campaign Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-6">
+        <h2 class="text-4xl font-bold">About the Campaign</h2>
+        <p class="text-lg text-gray-700">
+          Our campaign is built on a vision for a better tomorrow. Discover our values, our commitment to community, and why our candidate stands for change.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center space-y-6 mb-12">
+        <h2 class="text-4xl font-bold">Get Involved</h2>
+        <p class="text-lg text-gray-700">
+          Join us in our journey to create meaningful change. Volunteer, donate, or subscribe for updates—every bit of support makes a difference.
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+        <a href="#volunteer" class="bg-green-600 hover:bg-green-700 transition duration-300 ease-in-out text-white font-semibold py-3 px-8 rounded-full shadow">
+          Volunteer
+        </a>
+        <a href="#donate" class="bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out text-white font-semibold py-3 px-8 rounded-full shadow">
+          Donate
+        </a>
+        <a href="#subscribe" class="bg-yellow-500 hover:bg-yellow-600 transition duration-300 ease-in-out text-white font-semibold py-3 px-8 rounded-full shadow">
+          Subscribe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">&copy; 2025 Candidate Name. All Rights Reserved.</p>
+        <div class="flex space-x-4">
+          <a href="#privacy" class="hover:text-white transition duration-300">Privacy Policy</a>
+          <a href="#terms" class="hover:text-white transition duration-300">Terms of Service</a>
+          <a href="#contact" class="hover:text-white transition duration-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
