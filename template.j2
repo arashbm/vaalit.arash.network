@@ -63,15 +63,15 @@
     </div>
   </nav>
 
-  <header class="relative h-[80vh] min-h-[680px]">
+  <header class="relative h-[80vh] min-h-[740px]">
     <div class="absolute inset-0">
-      <img src="background-2.jpg" alt="Campaign Background" class="w-full h-full object-cover object-[20%_40%]" />
+      <img src="background-2.jpg" alt="Campaign Background" class="w-full h-full object-cover object-[10%_50%]" />
       <div class="absolute inset-0 md:bg-gradient-to-l bg-gradient-to-tl from-black/80 from-5% to-transparent to-70%"></div>
     </div>
     <div class="relative container mx-auto h-full flex items-end md:items-center md:justify-end justify-center px-4 py-3">
       <div class="text-right max-w-md space-y-6">
         <h1 class="text-white md:text-3xl text-2xl font-bold drop-shadow-lg">{{ name }}</h1>
-        <p class="text-white md:text-xl text-lg drop-shadow-md">{{ tagline }}
+        <p class="text-white md:text-xl text-md drop-shadow-md">{{ tagline }}
           <a href="#themes" class="text-punainen"> {{ learn_more }} </a>
         </p>
 
@@ -80,7 +80,7 @@
           method="post"
           target="popupwindow"
           onsubmit="window.open('https://buttondown.com/badie-modiri', 'popupwindow')"
-          class="w-full mx-auto bg-black/30 rounded-lg py-1 px-4 shadow"
+          class="w-full mx-auto bg-black/30 rounded-lg py-3 px-4 shadow"
         >
           <label for="bd-email" class="sr-only">Email</label>
           <input
@@ -110,8 +110,8 @@
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       {% for theme in themes %}
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-2xl">
-          <div class="relative group w-full h-65">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl">
+          <div class="relative group w-full h-55">
               <img src="{{ theme.src | e }}" alt="{{theme.alt}}" class="w-full h-full object-cover" />
               <div class="absolute bottom-2 left-2 bg-black opacity-75 text-white text-xs/2 p-1 rounded-full flex items-center justify-center">
                 ©
