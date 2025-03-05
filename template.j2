@@ -8,41 +8,8 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <script src="/tailwind.js"></script>
+  <link href="./output.css" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'Poppins';
-      src: url('/fonts/Poppins-Black.woff2') format('woff2');
-      font-display: swap;
-      font-weight: 900;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'Poppins';
-      src: url('/fonts/Poppins-Regular.woff2') format('woff2');
-      font-display: swap;
-      font-weight: 400;
-      font-style: normal;
-    }
-  </style>
-  <style type="text/tailwindcss">
-    @theme {
-      --font-sans: Poppins, sans-serif;
-      --color-punainen: #f00a64;
-      --color-sininen: #3200a0;
-      --color-pinkki: #ff78c7;
-      --color-keltainen: #ffe65a;
-    }
-
-    @layer base {
-      html {
-        font-size: 19px;
-      }
-      p a {
-        @apply text-punainen underline;
-      }
-    }
   </style>
 </head>
 
@@ -181,13 +148,13 @@
   <section class="py-10 bg-gray-50 scroll-mt-8" id="about-me">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="grid grid-cols-1 gap-6">
-          <img src="sunset.jpg" alt="" class="w-full md:h-135 h-60 object-cover rounded-lg" />
-        </div>
-
         <div class="space-y-6 text-gray-700">
           <h2 class="text-3xl font-bold text-black">{{about_me_title}}</h2>
           {{ about }}
+        </div>
+
+        <div class="grid grid-cols-1 gap-6">
+          <img src="sunset.jpg" alt="" class="w-full md:h-135 h-60 object-cover rounded-lg" />
         </div>
       </div>
     </div>
@@ -196,10 +163,6 @@
   <section class="bg-sininen py-4">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-        <div class="text-white text-lg">
-          <p>{{join_newsletter_text}}</p>
-          <p>{{newsletter_small_print}}</p>
-        </div>
         <div class="bg-white rounded-lg p-5 shadow flex items-center justify-center">
           <form 
             action="https://buttondown.com/api/emails/embed-subscribe/badie-modiri" 
@@ -223,6 +186,10 @@
               class="bg-blue-600 text-white font-semibold px-4 py-4 rounded hover:bg-blue-700 transition"
             />
           </form>
+        </div>
+        <div class="text-white">
+          <p>{{join_newsletter_text}}</p>
+          <p>{{newsletter_small_print}}</p>
         </div>
       </div>
     </div>

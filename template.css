@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Black.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: Poppins, sans-serif;
+  --color-punainen: #f00a64;
+  --color-sininen: #3200a0;
+  --color-pinkki: #ff78c7;
+  --color-keltainen: #ffe65a;
+}
+
+@layer base {
+  html {
+    font-size: 19px;
+  }
+  p a {
+    @apply text-punainen underline;
+  }
+}
