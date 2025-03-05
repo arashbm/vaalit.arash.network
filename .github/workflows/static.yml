@@ -46,7 +46,6 @@ jobs:
         run: |
           curl -L -o tailwindcss https://github.com/tailwindlabs/tailwindcss/releases/download/v4.0.9/tailwindcss-linux-x64
           chmod +x tailwindcss
-          mv tailwindcss
 
       - name: Generate from template
         run: python generate.py
