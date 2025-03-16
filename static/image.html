@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Overlay</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    #controls {
+      margin-bottom: 10px;
+    }
+
+    #myCanvas {
+      aspect-ratio: 1 / 1;
+
+      width: 100%;
+      height: auto;
+      max-width: 90vh;
+      border: 1px solid #ccc;
+      cursor: move;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label for="fileInput">Select an image:</label>
+    <input type="file" id="fileInput" accept="image/*" />
+
+    <label for="overlaySelect">Overlay:</label>
+    <select id="overlaySelect">
+      <option value="overlays/Kehys Alue.png">Kehys Alue</option>
+      <option value="overlays/Kehys Alue ja Kunta.png">Kehys Alue ja Kunta</option>
+      <option value="overlays/Kehys ENGL.png">Kehys ENGL</option>
+      <option value="overlays/Kehys Kunta.png">Kehys Kunta</option>
+      <option value="overlays/Kehys Slogan.png">Kehys Slogan</option>
+      <option value="overlays/Kehys SWE.png">Kehys SWE</option>
+    </select>
+
+    <button id="saveBtn">Save Merged Image</button>
+  </div>
+
+  <!--
+      The canvas’s internal resolution is 1080×1080.
+      This ensures the final downloaded image is 1080×1080.
+   -->
+  <canvas id="myCanvas" width="1080" height="1080"></canvas>
+
+  <script>
+    // DOM references
+    const fileInput = document.getElementById("fileInput");
+    const overlaySelect = document.getElementById("overlaySelect");
+    const saveBtn = document.getElementById("saveBtn");
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Images
+    let userImage = new Image();
+    let overlayImage = new Image();
+
+    // Transform states
+    let scale = 1.0;
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let initialOffsetX = 0;
+    let initialOffsetY = 0;
+
+    // ----------------------------------------------------
+    // Convert mouse event coords to the canvas’s internal coordinates
+    // (because the canvas is scaled visually)
+    // ----------------------------------------------------
+    function getCanvasCoords(evt) {
+      const rect = canvas.getBoundingClientRect();
+      const x = evt.clientX - rect.left;
+      const y = evt.clientY - rect.top;
+
+      // Scale from display size to the real 1080×1080 coordinates
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+
+      return {
+        x: x * scaleX,
+        y: y * scaleY
+      };
+    }
+
+    // ----------------------------------------------------
+    // Draw the user’s photo and overlay onto the canvas
+    // ----------------------------------------------------
+    function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (!userImage.src) return; // if userImage not loaded yet, skip
+
+      // Scaled dimensions for userImage
+      const userW = userImage.width * scale;
+      const userH = userImage.height * scale;
+
+      // Draw user image
+      ctx.drawImage(userImage, offsetX, offsetY, userW, userH);
+
+      // Draw overlay on top
+      if (overlayImage.complete && overlayImage.naturalWidth) {
+        // In this example, we scale the overlay to cover the entire 1080×1080
+        ctx.drawImage(overlayImage, 0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    // ----------------------------------------------------
+    // 1. Load user photo
+    // ----------------------------------------------------
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        userImage.onload = () => {
+          // Reset transforms each time a new image is loaded
+          scale = 1.0;
+          offsetX = 0;
+          offsetY = 0;
+          drawScene();
+        };
+        userImage.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // ----------------------------------------------------
+    // 2. Overlay selection
+    // ----------------------------------------------------
+    overlaySelect.addEventListener("change", () => {
+      overlayImage.src = overlaySelect.value;
+      drawScene();
+    });
+    overlayImage.src = overlaySelect.value;
+    overlayImage.onload = drawScene;
+
+    // ----------------------------------------------------
+    // 3. Dragging
+    // ----------------------------------------------------
+    canvas.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      const { x, y } = getCanvasCoords(e);
+      dragStartX = x;
+      dragStartY = y;
+      initialOffsetX = offsetX;
+      initialOffsetY = offsetY;
+    });
+
+    canvas.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      const { x, y } = getCanvasCoords(e);
+
+      // Update offsets based on drag difference
+      offsetX = initialOffsetX + (x - dragStartX);
+      offsetY = initialOffsetY + (y - dragStartY);
+
+      drawScene();
+    });
+
+    canvas.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+    canvas.addEventListener("mouseleave", () => {
+      isDragging = false;
+    });
+
+    // ----------------------------------------------------
+    // 4. Mouse wheel zoom
+    // ----------------------------------------------------
+    canvas.addEventListener("wheel", (e) => {
+      e.preventDefault();
+
+      const zoomStep = 0.02; // smaller for finer control
+
+      if (e.deltaY < 0) {
+        // Zoom in
+        scale += zoomStep;
+      } else {
+        // Zoom out
+        scale -= zoomStep;
+        if (scale < 0.05) scale = 0.05;
+      }
+
+      drawScene();
+    });
+
+    // ----------------------------------------------------
+    // 5. Save the merged image
+    // ----------------------------------------------------
+    saveBtn.addEventListener("click", () => {
+      // The canvas internally is 1080×1080, so this is the final resolution.
+      const dataURL = canvas.toDataURL("image/png");
+
+      // Create a link to download
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "merged_image.png";
+      link.click();
+    });
+
+    // Initial draw
+    drawScene();
+  </script>
+</body>
+</html>
