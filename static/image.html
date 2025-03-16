@@ -2,54 +2,138 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <!-- Ensures the page scales properly on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overlay</title>
+
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 20px;
+    /* Basic "reset" */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* A simple container to center content */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* A card-like wrapper for the controls */
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+
+    /* Controls layout */
     #controls {
-      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    select, input[type="file"], button {
+      font-size: 1rem;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* The canvas has an internal 1080×1080 resolution,
+       but is displayed responsively with a 1:1 ratio. */
+    #canvasWrapper {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin-bottom: 16px;
     }
 
     #myCanvas {
       aspect-ratio: 1 / 1;
-
       width: 100%;
       height: auto;
-      max-width: 90vh;
       border: 1px solid #ccc;
       cursor: move;
       display: block;
       margin: 0 auto;
-      touch-action: none;
+      touch-action: none; /* Important for pinch/drag */
+      border-radius: 4px;
+    }
+
+    /* Some spacing for the bottom of the page */
+    .footer-space {
+      height: 40px;
     }
   </style>
 </head>
+
 <body>
-  <div id="controls">
-    <label for="fileInput">Select an image:</label>
-    <input type="file" id="fileInput" accept="image/*" />
+  <div class="container">
+    <h1>Overlay Your Photo</h1>
 
-    <label for="overlaySelect">Overlay:</label>
-    <select id="overlaySelect">
-      <option value="overlays/Kehys Alue.png">Kehys Alue</option>
-      <option value="overlays/Kehys Alue ja Kunta.png">Kehys Alue ja Kunta</option>
-      <option value="overlays/Kehys ENGL.png">Kehys ENGL</option>
-      <option value="overlays/Kehys Kunta.png">Kehys Kunta</option>
-      <option value="overlays/Kehys Slogan.png">Kehys Slogan</option>
-      <option value="overlays/Kehys SWE.png">Kehys SWE</option>
-    </select>
+    <div class="card" id="controls">
+      <div>
+        <label for="fileInput">Select an image</label>
+        <input type="file" id="fileInput" accept="image/*" />
+      </div>
 
-    <button id="saveBtn">Save Merged Image</button>
+      <div>
+        <label for="overlaySelect">Choose an overlay</label>
+        <select id="overlaySelect">
+          <option value="overlays/Kehys Alue.png">Kehys Alue</option>
+          <option value="overlays/Kehys Alue ja Kunta.png">Kehys Alue ja Kunta</option>
+          <option value="overlays/Kehys ENGL.png">Kehys ENGL</option>
+          <option value="overlays/Kehys Kunta.png">Kehys Kunta</option>
+          <option value="overlays/Kehys Slogan.png">Kehys Slogan</option>
+          <option value="overlays/Kehys SWE.png">Kehys SWE</option>
+        </select>
+      </div>
+
+      <button id="saveBtn">Save Merged Image</button>
+    </div>
+
+    <div class="card" id="canvasWrapper">
+      <!-- Internal resolution 1080×1080, but scaled in CSS -->
+      <canvas id="myCanvas" width="1080" height="1080"></canvas>
+    </div>
+
+    <div class="footer-space"></div>
   </div>
-
-  <!--
-      The canvas’s internal resolution is 1080×1080.
-      This ensures the final downloaded image is 1080×1080.
-   -->
-  <canvas id="myCanvas" width="1080" height="1080"></canvas>
 
   <script>
     // DOM references
@@ -68,54 +152,53 @@
     let offsetX = 0;
     let offsetY = 0;
 
+    // Single-finger drag
     let isDragging = false;
     let dragStartX = 0;
     let dragStartY = 0;
     let initialOffsetX = 0;
     let initialOffsetY = 0;
 
+    // Two-finger pinch
     let isPinching = false;
     let initialPinchDistance = 0;
     let initialPinchScale = 1;
     let pinchCenter = { x: 0, y: 0 };
 
     // ----------------------------------------------------
-    // Convert mouse event coords to the canvas’s internal coordinates
-    // (because the canvas is scaled visually)
+    // Convert pointer coords to canvas coords
     // ----------------------------------------------------
     function getCanvasCoords(clientX, clientY) {
       const rect = canvas.getBoundingClientRect();
       const x = clientX - rect.left;
       const y = clientY - rect.top;
+      // scale up to 1080×1080
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
       return { x: x * scaleX, y: y * scaleY };
     }
 
     // ----------------------------------------------------
-    // Draw the user’s photo and overlay onto the canvas
+    // Redraw everything
     // ----------------------------------------------------
     function drawScene() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if (!userImage.src) return; // if userImage not loaded yet, skip
+      // If user hasn't uploaded yet, do nothing
+      if (!userImage.src) return;
 
-      // Scaled dimensions for userImage
       const userW = userImage.width * scale;
       const userH = userImage.height * scale;
-
-      // Draw user image
       ctx.drawImage(userImage, offsetX, offsetY, userW, userH);
 
-      // Draw overlay on top
+      // Draw overlay
       if (overlayImage.complete && overlayImage.naturalWidth) {
-        // In this example, we scale the overlay to cover the entire 1080×1080
         ctx.drawImage(overlayImage, 0, 0, canvas.width, canvas.height);
       }
     }
 
     // ----------------------------------------------------
-    // 1. Load user photo
+    // 1) Handle user file upload
     // ----------------------------------------------------
     fileInput.addEventListener("change", (e) => {
       const file = e.target.files[0];
@@ -124,7 +207,7 @@
       const reader = new FileReader();
       reader.onload = (evt) => {
         userImage.onload = () => {
-          // Reset transforms each time a new image is loaded
+          // Reset transforms
           scale = 1.0;
           offsetX = 0;
           offsetY = 0;
@@ -136,7 +219,7 @@
     });
 
     // ----------------------------------------------------
-    // 2. Overlay selection
+    // 2) Overlay selection
     // ----------------------------------------------------
     overlaySelect.addEventListener("change", () => {
       overlayImage.src = overlaySelect.value;
@@ -146,7 +229,7 @@
     overlayImage.onload = drawScene;
 
     // ----------------------------------------------------
-    // 3. Dragging
+    // 3) Mouse drag
     // ----------------------------------------------------
     canvas.addEventListener("mousedown", (e) => {
       isDragging = true;
@@ -160,52 +243,45 @@
     canvas.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
       const { x, y } = getCanvasCoords(e.clientX, e.clientY);
-
-      // Update offsets based on drag difference
       offsetX = initialOffsetX + (x - dragStartX);
       offsetY = initialOffsetY + (y - dragStartY);
-
       drawScene();
     });
 
     canvas.addEventListener("mouseup", () => {
       isDragging = false;
     });
+
     canvas.addEventListener("mouseleave", () => {
       isDragging = false;
     });
 
     // ----------------------------------------------------
-    // 4. Mouse wheel zoom
+    // 4) Mouse wheel for zoom
     // ----------------------------------------------------
     canvas.addEventListener("wheel", (e) => {
       e.preventDefault();
-
-      const zoomStep = 0.05; // smaller for finer control
-
+      const zoomStep = 0.05;
       if (e.deltaY < 0) {
-        // Zoom in
         scale += zoomStep;
       } else {
-        // Zoom out
         scale -= zoomStep;
         if (scale < 0.05) scale = 0.05;
       }
-
       drawScene();
-    });
+    }, { passive: false });
 
-    // Helper function: distance between two touches
-    function getDistance(touch1, touch2) {
-      const dx = touch2.clientX - touch1.clientX;
-      const dy = touch2.clientY - touch1.clientY;
+    // ----------------------------------------------------
+    // 5) Touch for drag & pinch
+    // ----------------------------------------------------
+    function getDistance(t1, t2) {
+      const dx = t2.clientX - t1.clientX;
+      const dy = t2.clientY - t1.clientY;
       return Math.sqrt(dx*dx + dy*dy);
     }
-
-    // Helper: midpoint in canvas coords
-    function getMidpointCanvasCoords(touch1, touch2) {
-      const midX = (touch1.clientX + touch2.clientX) / 2;
-      const midY = (touch1.clientY + touch2.clientY) / 2;
+    function getMidpointCanvasCoords(t1, t2) {
+      const midX = (t1.clientX + t2.clientX) / 2;
+      const midY = (t1.clientY + t2.clientY) / 2;
       return getCanvasCoords(midX, midY);
     }
 
@@ -213,7 +289,7 @@
       e.preventDefault();
 
       if (e.touches.length === 1) {
-        // SINGLE-FINGER DRAG
+        // Drag
         isDragging = true;
         const t = e.touches[0];
         const { x, y } = getCanvasCoords(t.clientX, t.clientY);
@@ -221,19 +297,13 @@
         dragStartY = y;
         initialOffsetX = offsetX;
         initialOffsetY = offsetY;
-        console.log("start drag", t.clientX, t.clientY);
-
       } else if (e.touches.length === 2) {
-        // TWO-FINGER PINCH
+        // Pinch
         isPinching = true;
-        isDragging = false; // turn off single-finger drag
-
-        // Calculate initial distance
+        isDragging = false;
         const dist = getDistance(e.touches[0], e.touches[1]);
         initialPinchDistance = dist;
         initialPinchScale = scale;
-
-        // Get pinch center in canvas coords
         pinchCenter = getMidpointCanvasCoords(e.touches[0], e.touches[1]);
       }
     }, { passive: false });
@@ -242,34 +312,24 @@
       e.preventDefault();
 
       if (e.touches.length === 1 && isDragging) {
-        // SINGLE-FINGER DRAG
+        // Single-finger drag
         const t = e.touches[0];
         const { x, y } = getCanvasCoords(t.clientX, t.clientY);
         offsetX = initialOffsetX + (x - dragStartX);
         offsetY = initialOffsetY + (y - dragStartY);
         drawScene();
-
       } else if (e.touches.length === 2 && isPinching) {
-        // TWO-FINGER PINCH
+        // Two-finger pinch
         const dist = getDistance(e.touches[0], e.touches[1]);
-        // The pinch ratio compared to initial distance
         const pinchRatio = dist / initialPinchDistance;
-        // New scale
         const newScale = initialPinchScale * pinchRatio;
-
-        // We'll zoom around the pinch center
-        // That means we adjust offsetX/offsetY so pinchCenter stays in the same place
-        const scaleChange = newScale / scale; // how much we're scaling from the old scale
+        // Zoom around pinch center
+        const scaleChange = newScale / scale;
         scale = newScale;
+        if (scale < 0.05) scale = 0.05;
 
-        // Apply transformation so that pinchCenter remains stable in canvas coords
         offsetX = pinchCenter.x - scaleChange * (pinchCenter.x - offsetX);
         offsetY = pinchCenter.y - scaleChange * (pinchCenter.y - offsetY);
-
-        // Avoid going too small
-        if (scale < 0.05) {
-          scale = 0.05;
-        }
 
         drawScene();
       }
@@ -277,8 +337,6 @@
 
     canvas.addEventListener("touchend", (e) => {
       e.preventDefault();
-
-      // If one finger remains, we might revert to drag, but let's keep it simple:
       if (e.touches.length < 2) {
         isPinching = false;
       }
@@ -290,19 +348,16 @@
 
     canvas.addEventListener("touchcancel", (e) => {
       e.preventDefault();
-
       isDragging = false;
       isPinching = false;
     }, { passive: false });
 
     // ----------------------------------------------------
-    // 5. Save the merged image
+    // 6) Save the merged image
     // ----------------------------------------------------
     saveBtn.addEventListener("click", () => {
-      // The canvas internally is 1080×1080, so this is the final resolution.
+      // Exports at 1080×1080
       const dataURL = canvas.toDataURL("image/png");
-
-      // Create a link to download
       const link = document.createElement("a");
       link.href = dataURL;
       link.download = "merged_image.png";
