@@ -21,6 +21,8 @@ def compile_site(output_dir):
 
         with open(f"{language}/dict.json") as df:
             dictionary = json.load(df)
+            dictionary["lang"] = language
+            dictionary["base_url"] = "https://vaalit.arash.network/"
 
         for p in Path(language).glob("*.md"):
             dictionary[p.stem] = markdowner.convert(p.read_text())
