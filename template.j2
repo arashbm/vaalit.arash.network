@@ -42,29 +42,29 @@
     <div class="relative container mx-auto h-full flex items-end md:items-center md:justify-end justify-center px-4 py-3">
       <div class="text-center max-w-md space-y-6">
         <h1 class="text-white md:text-3xl text-2xl font-black drop-shadow-lg mb-1 md:mb-3">{{ name }}</h1>
-          <div class="flex justify-center space-x-6">
-            <div class="bg-violetti p-4 rounded shadow">
-              <div class="font-semibold text-center mb-2">
-                County
-              </div>
-              <div class="flex items-center justify-center h-10 w-20 mx-auto border-2 border-black rounded-full">
-                <span class="text-punainen text-2xl">
-                  2045
-                </span>
-              </div>
+        <div class="flex gap-4 justify-center w-full">
+          <div class="flex-1 bg-violetti p-4 rounded shadow">
+            <div class="font-semibold text-center mb-2">
+              {{county_election}}
             </div>
-
-            <div class="bg-white p-4 rounded shadow">
-              <div class="font-semibold text-center mb-2">
-                Municipal
-              </div>
-              <div class="flex items-center justify-center h-10 w-20 mx-auto border-2 border-black rounded-full">
-                <span class="text-punainen text-2xl">
-                  248
-                </span>
-              </div>
+            <div class="flex items-center justify-center h-10 w-20 mx-auto border-2 border-black rounded-full">
+              <span class="text-punainen text-2xl">
+                2045
+              </span>
             </div>
           </div>
+
+          <div class="flex-1 bg-white p-4 rounded shadow">
+            <div class="font-semibold text-center mb-2">
+              {{municipal_election}}
+            </div>
+            <div class="flex items-center justify-center h-10 w-20 mx-auto border-2 border-black rounded-full">
+              <span class="text-punainen text-2xl">
+                248
+              </span>
+            </div>
+          </div>
+        </div>
         <p class="text-white md:text-xl text-md drop-shadow-md mb-2 md:mb-4 text-left">{{ americanisation }}
           <a href="#themes" class="text-punainen"> {{ learn_more }} &#8628; </a>
         </p>
